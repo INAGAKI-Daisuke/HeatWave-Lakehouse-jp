@@ -1,4 +1,4 @@
-# Lab 04: 踏み台サーバーにMySQL Shellをインストール、サンプルデータのダウンロード
+# Lab 04: 踏み台サーバーにMySQL Shellをインストール
 
 ## 学べること
 - OCI Cloud Shellと踏み台サーバーへの接続方法
@@ -110,44 +110,8 @@ MySQL Shellプロンプトが表示されたら、以下のコマンドを実行
 \q
 ```
 
-### **Step 4.10:**
-- 以下のコマンドを実行して、演習用資材をダウンロード、解凍します。
-```
-cd /home/opc
-```
-
-```
-wget https://objectstorage.ap-osaka-1.oraclecloud.com/p/seAq8Kgd4TyUqlv5M5qObMJwvsluhCPyOuHOn1L_t4HQYUle2DV-KdFeK44MS7yQ/n/idazzjlcjqzj/b/workshop/o/heatwave_workshop.zip
-
-```
-
-![](./images/cloud-shell-10.png)
-
-```
-unzip heatwave_workshop.zip
-```
-
-![](./images/cloud-shell-11.png)
-
-
-解凍できたら次の手順に進みます。
-
-### **Step 4.11:**
-- _**ll**_ コマンドを実行して展開された資材に以下のファイルが含まれていることを確認します。
-
-_**tpch_dump**_
-
-_**tpch_offload.sql**_
-
-_**tpch_queries_mysql.sql**_
-
-_**tpch_queries_rapid.sql**_
-
-![](./images/cloud-shell-12.png)
-
-
 ## まとめ
 
-ここまでの操作で、Cloud Shellの起動、コンピュート・インスタンスに接続するための秘密キーをインポートしました。 更に、MySQL ShellとMySQLクライアントをインストールし、最後に後でベンチマークに使用する資材をダウンロードして解凍しました。
+ここまでの操作で、Cloud Shellの起動、コンピュート・インスタンスに接続するための秘密キーをインポートしました。 更に、MySQL ShellとMySQLクライアントをインストールしました。
 
 **[<< Lab 03](/Lab03/README.md)** | **[Home](../README.md)** | **[Lab 05 >>](/Lab05/README.md)**

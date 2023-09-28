@@ -19,7 +19,6 @@ HeatWaveクラスターをデプロイした後、データをロードしてク
 ### **Step 5.1:**
 - 画面左上のメニューから _**データベース >> DBシステム**_ を選択します。
 DBシステム一覧から先に作成したインスタンスをクリックして _**アクティブ**_ の状態となっていることを確認します。
-表示されている _**プライベートIPアドレス**_ を控えておきます。
 
 ![](./images/HW29_mds.png)
 
@@ -55,9 +54,8 @@ _**HeatWaveクラスタの追加**_ ボタンをクリックします。
 
 ## まとめ
 
-これで、MySQL DBシステムノードと2つのHeatWaveノードで構成されるHeatWaveクラスタを追加できました!</br>
+これで、MySQL DBシステムノードと1つのHeatWave Lakehouseノードで構成されるHeatWaveクラスタを追加できました!</br>
 MySQL DBシステムノードには、クラスタ管理、クエリスケジューリング、およびクエリ結果をMySQL DBシステムへ返却するHeatWaveプラグインが含まれています。HeatWaveノードはデータをメモリに保存し、クエリを処理します。
-**[Oracle Cloud上のHeatWaveサービス](https://docs.oracle.com/ja-jp/iaas/mysql-database/doc/heatwave.html)**
-それではHeatWaveクラスタを有効にする前に、次の演習ではMySQL DBシステムでクエリを実行してみましょう。
+
 
 **[<< Lab 04](/Lab04/README.md)** | **[Home](../README.md)** | **[Lab 06 >>](/Lab06/README.md)**
