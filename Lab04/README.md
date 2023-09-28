@@ -1,4 +1,4 @@
-# Lab 04: 踏み台サーバーにMySQL Shellをインストール、サンプルデータのダウンロード
+# Lab 04: 踏み台サーバーにMySQL Shellをインストール
 
 ## 学べること
 - OCI Cloud Shellと踏み台サーバーへの接続方法
