@@ -342,6 +342,9 @@ SHOW CREATE TABLE `autotpch100`.`part` \G;
 ```
 SHOW CREATE TABLE `autotpch100`.`customer` \G;
 ```
+```
+SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id;
+```
 
 
 ## まとめ
