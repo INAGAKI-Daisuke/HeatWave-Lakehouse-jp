@@ -50,8 +50,12 @@ ENGINE_ATTRIBUTE='{"file":
        "bucket":"<bucket_name>", 
        "name":"<lineitem_file_location>"}]}';
 ```
-
-
+- ENGINE_ATTRIBUTEをPAR URLに変更します。
+```  
+ENGINE_ATTRIBUTE='{"file": 
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/lineitem.tbl"}]
+     }';
+```
 
 - 以下のコマンドを実行して、演習用資材をダウンロード、解凍します。
 ```
