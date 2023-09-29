@@ -107,6 +107,15 @@ SET @ext_tables = '[{
 
 
 ```
+
+```
+SET @options = JSON_OBJECT('external_tables', CAST(@ext_tables AS JSON));
+```
+```
+CALL sys.heatwave_load(@db_list, @options);
+```
+
+
 ![](./images/HW35_hw.png)
 
 - 実行計画(EXPLAIN)を確認し、セカンダリエンジンが有効になっていることを確認します。
