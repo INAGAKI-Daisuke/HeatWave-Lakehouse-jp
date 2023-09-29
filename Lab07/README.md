@@ -29,12 +29,11 @@ create database autotpch100;
 
  実行できたら _**Step 7.3**_ に進みます。
 
-### **Step 7.3:**
-- それでは、HeatWaveを使ってクエリを実行してみましょう。
+### **Step 7.3:データベースの設定**
+- 変数にデータベースを設定します
 
-MySQL Shellを利用してMDSに接続します。
 ```
-mysqlsh --user=admin --password=Oracle.123 --host=<mysql_private_ip_address> --port=3306 --database=tpch --sql
+SET @db_list = '["autotpch100"]';
 ```
 - _**HeatWave**_ を有効にします。
 ```
