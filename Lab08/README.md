@@ -188,34 +188,19 @@ ENGINE_ATTRIBUTE='{"file":
      }';
 ```
 
-```
-wget https://objectstorage.ap-osaka-1.oraclecloud.com/p/2b0vXZXLx4M4dBREKIAt77EpkGls9KqNb-YGBZg0r0EkDMd-5eL2MCNTHLEKP-Td/n/idazzjlcjqzj/b/workshop/o/oac_hands_on.zip
+### **Step 8.3:MySQL HeatWave Lakehouseへのロード**
+- secondary_loadを実行し、対象テーブルに対して指定したファイルをHeatWaveへ取り込みを実施します
 
 ```
-
-![](./images/cloud-shell-13.png)
-
+alter table LINEITEM secondary_load;
+alter table ORDERS secondary_load;
+alter table CUSTOMER secondary_load;
+alter table SUPPLIER secondary_load;
+alter table NATION secondary_load;
+alter table REGION secondary_load;
+alter table PART secondary_load;
+alter table PARTSUPP secondary_load;
 ```
-unzip oac_hands_on.zip
-```
-
-![](./images/cloud-shell-14.png)
-
-
-解凍できたら次の手順に進みます。
-
-### **Step 8.2:**
-- _**ll**_ コマンドを実行して展開された資材に以下のディレクトリ、ファイルが含まれていることを確認します。
-
-_**check_heatwave.sql**_
-
-_**dbuser01_offload.sql**_
-
-_**oac_hands_on**_
-
-
-![](./images/cloud-shell-15.png)
-
 
 ### **Step 8.3:**
 - 以下のコマンドを実行してMySQL Shellを使用してMDSに接続します。
