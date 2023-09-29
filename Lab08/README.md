@@ -59,7 +59,6 @@ ENGINE_ATTRIBUTE='{"file":
 
 ### **Step 8.3:全てのテーブルを作成**
 
-- 以下のコマンドを実行して、演習用資材をダウンロード、解凍します。
 ```
 CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL COMMENT 'RAPID_COLUMN=DATA_PLACEMENT_KEY=1', 
                         L_PARTKEY     INTEGER NOT NULL, 
