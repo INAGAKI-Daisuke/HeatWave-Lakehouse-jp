@@ -335,44 +335,19 @@ ALTER TABLE `autotpch100`.`part` SECONDARY_LOAD;
 ```
 
 
-### **Step 7.4:**
-
-HeatWaveがどのように機能し、パフォーマンスが向上するかを見てきました。次はバッチを利用してクエリ実行を試してみます。
-
-スクリプトtpch_queries_mysql.sqlを実行して、HeatWaveを使用せずにいくつかのクエリを実行します。
-次に、スクリプトtpch_queries_rapid.sqlを実行して、HeatWaveを使用して同じクエリを実行します。
-最後に、結果を比較します。
-
-この演習では、MySQL Shellの代わりに、MySQLクライアントを使用します。
-次のコマンドを実行します。
+## コマンド一覧
 ```
-mysql -h<mysql private ip address> -uadmin -pOracle.123 -Dtpch < tpch_queries_rapid.sql
+SHOW CREATE TABLE `autotpch100`.`part` \G;
 ```
 ```
-mysql -h<mysql private ip address> -uadmin -pOracle.123 -Dtpch < tpch_queries_mysql.sql
+SHOW CREATE TABLE `autotpch100`.`customer` \G;
 ```
-以下のコマンドを実行して、HeatWaveを使用しない場合は完了までに時間がかかっていることが分かると思います。
-```
-diff -y rapid_rt_profiles.log mysql_rt_profiles.log
-```
-
-- 以下は出力結果のサンプルです。
-
-![](./images/HW36_hw.png)
-
-- ここまで、HeatWave(RAPIDエンジン)、MDS(InnoDBエンジン)単体それぞれを使用した場合の実行時間を比較しました。
-
-補足: inspect tpch_queries_mysql.sql と tpch_queries_rapid.sql の違いについてはviなどを利用して確認してみてください。
 
 
 ## まとめ
 
-クエリ実行時間を見てみると、HeatWaveクラスタが有効になっている場合、1秒以内にクエリ結果が返却されました。特定の条件を満たすクエリは、実行を加速するためにMySQL DBシステムからHeatWaveクラスタに自動的にオフロードされます。 クエリは、HeatWaveクラスタが有効になっているMDS経由でMySQLクライアントまたはアプリケーションから発行されます。 結果は、経由でクエリを発行したMySQLクライアントまたはアプリケーションに返却されます。
+今回はAuto Loadによるデータの取り込みでした。次のステップではユーザがカラムを設定する形でデータの取り込みを行います
 
 
-## 全て完了です！Well Done!
-
-HeatWaveとOracle Analytics Cloudを組み合わせて利用する演習や、踏み台サーバーではなくOracle Bastion Serviceを使用してMDSへ接続する方法、MDSの高可用性構成をプロビジョニングする方法を案内した3つのボーナストラックがあります！
-引き続き演習を続けましょう。
 
 **[<< Lab 06](/Lab06/README.md)** | **[Home](../README.md)** | **[Lab 08 >>](/Lab08/README.md)**
