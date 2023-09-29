@@ -34,6 +34,9 @@ CREATE TABLE MYTABLE ( M_OKEY bigint NOT NULL, M_PKEY int NOT NULL,
 ```
   
 
+
+
+
 ### **PAR URLを使用する:**
 - OCIオブジェクトストアバゲット内のファイルまたはフォルダに対し、PAR(事前認証リクエスト)を作成することができます。PARが作成されると、一意のURLが生成されます。このURLを知っているユーザならば誰でも、curlやwgetなどの標準HTTPツールを使って、PARで識別されるオブジェクトストレージのリソースにアクセスできます
   
