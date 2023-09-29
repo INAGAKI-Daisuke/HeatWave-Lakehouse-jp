@@ -7,7 +7,7 @@
 
 ## 参考情報
 
-TPCHに対応したサンプルテーブルは　https://github.com/oracle/heatwave-tpch　に公開されています
+TPCHに対応したサンプルテーブルは　**[ https://github.com/oracle/heatwave-tpch ]**　に公開されています
 
 
 ## 前提条件
