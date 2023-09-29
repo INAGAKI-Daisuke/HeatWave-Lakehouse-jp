@@ -35,7 +35,9 @@ create database autotpch100;
 ```
 SET @db_list = '["autotpch100"]';
 ```
-- _**HeatWave**_ を有効にします。
+### **Step 7.4:テーブル情報を設定**
+- 変数にテーブル名及び参照先を設定します
+
 ```
 SET @ext_tables = '[{
           "db_name": "autotpch100",
@@ -101,11 +103,24 @@ SET @ext_tables = '[{
 
 ```
 
+### **Step 7.5:オプションを設定**
+- テーブル情報のフォーマットを設定します
 ```
 SET @options = JSON_OBJECT('external_tables', CAST(@ext_tables AS JSON));
 ```
+
+### **Step 7.6:Lakehouseへ取り込み**
+- MySQL HeatWave Lakehouseへの取り込みを実施します
 ```
 CALL sys.heatwave_load(@db_list, @options);
+```
+
+
+```
+alter table part MODIFY col_2 varchar(64) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN';
+```
+```
+ALTER TABLE `autotpch100`.`part` SECONDARY_LOAD;
 ```
 
 
