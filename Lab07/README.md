@@ -1,41 +1,31 @@
-# Lab 07: HeatWaveを有効にしてクエリを実行する
+# Lab 07: PAR URLを使用してデータをMySQL HeatWave Lakehouseに取り込む
 
-## 学べること
-- HeatWaveを有効にする方法を学び、HeatWaveが無効になっている場合とクエリ実行時間を比較する
+## Auto Loadingによる取り込み
 
-## 概要
+このセクションでは、自動並列ロード プロシージャと、プロシージャの一部として呼び出される自動スキーマ アドバイザーを使用したデータのロードについて説明します。
 
-HeatWaveを利用する際にはクエリ実行する対象のテーブルをHeatWaveクラスタのメモリにロードする必要があります。</br>
-HeatWaveクラスタのサイズは、ロードされたテーブルと列、およびこのデータのメモリで達成された圧縮によって異なります。HeatWaveクラスターのプロビジョニングが不十分な場合、スペースの制限により、データのロードまたはクエリの実行が失敗します。</br>
-なおHeatWaveを有効化する際に、HeatWaveクラスタに必要なノード数の見積もりを行うと、ワークロードを実行するために推奨されるHeatWaveノード数が算出されます。 
+このプロセスでは、既存の外部テーブル定義は必要なく、自動スキーマ アドバイザ分析に基づいて外部テーブルが作成されます。 
 
-## このステップの構成図
-![](./images/Lab07.PNG)
 
 ## 手順
 
-### **Step 7.1:**
+### **Step 7.1:アクセスするPAR URL:**
 - OCIコンソールでHeatWaveノードが _**アクティブ**_ の状態になっていることを確認します。
   
 
 ![](./images/HW34_hw.png)
 
 
-### **Step 7.2:**
-- HeatWaveノードが _**アクティブ**_ となっている場合は、以下のコマンドを実行してMySQL Shellを使用してMDSに接続します。
+### **Step 7.2:データベースの作成**
+- データを展開するデータベース[_**autotpch100**_]を作成します
 
 ```
 mysqlsh --user=admin --password=Oracle.123 --host=<mysql_private_ip_address> --port=3306 --sql
 ```
 
-- 次に、以下のコマンドを実行してtpchデータベース内のテーブルをHeatWaveノードにロードします。
-
 ```
-CALL sys.heatwave_load(JSON_ARRAY("tpch"),NULL);
-\quit
+create database autotpch100;
 ```
-
-![](./images/HW34_2_hw.png)
 
  実行できたら _**Step 7.3**_ に進みます。
 
