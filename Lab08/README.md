@@ -24,6 +24,7 @@ use tpch100;
 
 
 ### **Step 8.2:テーブルの作成**
+```
 CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL, 
                         L_PARTKEY     INTEGER NOT NULL, 
                         L_SUPPKEY     INTEGER NOT NULL,
@@ -48,7 +49,7 @@ ENGINE_ATTRIBUTE='{"file":
        "namespace":"<namespace>", 
        "bucket":"<bucket_name>", 
        "name":"<lineitem_file_location>"}]}';
-
+```
 
 
 
