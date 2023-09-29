@@ -1,4 +1,4 @@
-# Lab 08: OAC用のサンプルデータをMDS及びHeatWaveにロードする。Oracle Analytics Cloud(OAC) を構成して、OACからMDS for HeatWaveに接続する。
+# Lab 08: PAR URLを使用してデータをMySQL HeatWave Lakehouseに取り込む
 
 ## 学べること:
 - OAC用のサンプルデータのダウンロード、MDSおよびHeatWaveへサンプルデータをロードする方法
