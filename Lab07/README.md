@@ -361,16 +361,6 @@ SELECT log->>"$.sql" AS "Load Script"
           WHERE type = "sql" ORDER BY id;
 ```
 
-View the number of load commands generated:
-
-```
-SELECT Count(*) AS "Total Load Commands Generated"
-          FROM sys.heatwave_load_report 
-          WHERE type = "sql" ORDER BY id;
-```
-
-
-
 ## まとめ
 
 今回はAuto Loadによるデータの取り込みでした。次のステップではユーザがカラムを設定する形でデータの取り込みを行います
