@@ -59,7 +59,6 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/orders.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/orders.tbl"}
               ]
             },
             {
@@ -67,7 +66,6 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/part.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/part.tbl"}
               ]
             },
             {
@@ -75,7 +73,6 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/partsupp.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/partsupp.tbl"}
               ]
             },
             {
@@ -83,7 +80,6 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/region.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/region.tbl"}
               ]
             },
             {
@@ -91,7 +87,6 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/supplier.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/supplier.tbl"}
               ]
             },
             {
@@ -99,12 +94,10 @@ SET @ext_tables = '[{
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
               "file": [
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/nation.tbl"}
-                {"par": "https://idazzjlcjqzj.objectstorage.ap-tokyo-1.oci.customer-oci.com/p/eMhabTgbvMrVCAmCseDfbQYbXqxtSWoAjtmyeJr2RBsugTDyDy4pcQWhTrmCMuRc/n/idazzjlcjqzj/b/tpch-100/o/nation.tbl"}
               ]
             }
           ]
         }]';
-
 
 ```
 
