@@ -342,9 +342,33 @@ SHOW CREATE TABLE `autotpch100`.`part` \G;
 ```
 SHOW CREATE TABLE `autotpch100`.`customer` \G;
 ```
+
+
+- Auto Parallel Load が予期せず停止した場合のエラー情報を表示
+
 ```
-SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id;
+SELECT log FROM sys.heatwave_load_report WHERE type="error";
 ```
+
+- 警告を表示して、テーブルをロードできない理由を確認
+```
+SELECT log FROM sys.heatwave_load_report WHERE type="warn";
+```
+- 生成されたロード スクリプトを表示して、実行されるコマンドを確認
+```
+SELECT log->>"$.sql" AS "Load Script"
+          FROM sys.heatwave_load_report 
+          WHERE type = "sql" ORDER BY id;
+```
+
+View the number of load commands generated:
+
+```
+SELECT Count(*) AS "Total Load Commands Generated"
+          FROM sys.heatwave_load_report 
+          WHERE type = "sql" ORDER BY id;
+```
+
 
 
 ## まとめ
