@@ -22,7 +22,7 @@ GROUP BY l_returnflag , l_linestatus
 ORDER BY l_returnflag , l_linestatus;
 ```
 - TPC-H Query 2 - Minimum Cost Supplier Query
-  ```
+```
   SELECT 
    s_acctbal, s_name, n_name, p_partkey, p_mfgr, 
        s_address, s_phone, s_comment
