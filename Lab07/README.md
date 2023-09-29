@@ -114,85 +114,7 @@ SET @options = JSON_OBJECT('external_tables', CAST(@ext_tables AS JSON));
 ```
 CALL sys.heatwave_load(@db_list, @options);
 ```
-
-
-```
-alter table part MODIFY col_2 varchar(64) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN';
-```
-```
-ALTER TABLE `autotpch100`.`part` SECONDARY_LOAD;
-```
-
-
-![](./images/HW35_hw.png)
-
-- 実行計画(EXPLAIN)を確認し、セカンダリエンジンが有効になっていることを確認します。
-```
-EXPLAIN SELECT
-    l_returnflag,
-    l_linestatus,
-    SUM(l_quantity) AS sum_qty,
-    SUM(l_extendedprice) AS sum_base_price,
-    SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price,
-    SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge,
-    AVG(l_quantity) AS avg_qty,
-    AVG(l_extendedprice) AS avg_price,
-    AVG(l_discount) AS avg_disc,
-    COUNT(*) AS count_order
-FROM
-    lineitem
-WHERE
-    l_shipdate <= DATE '1998-12-01' - INTERVAL '90' DAY
-GROUP BY l_returnflag , l_linestatus
-ORDER BY l_returnflag , l_linestatus;
-```
-("Using secondary engine RAPID" というメッセージが出力されます)
-
-```
-+----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+----------------------------------------------------------------------------+
-| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows    | filtered | Extra                                                                      |
-+----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+----------------------------------------------------------------------------+
-|  1 | SIMPLE      | lineitem | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 5970493 |    33.33 | Using where; Using temporary; Using filesort; Using secondary engine RAPID |
-+----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+----------------------------------------------------------------------------+
-1 row in set, 1 warning (0.0123 sec)
-```
-
-- もう一度先ほどのSQLを実行して実行結果を確認してみましょう。
-```
-SELECT
-    l_returnflag,
-    l_linestatus,
-    SUM(l_quantity) AS sum_qty,
-    SUM(l_extendedprice) AS sum_base_price,
-    SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price,
-    SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge,
-    AVG(l_quantity) AS avg_qty,
-    AVG(l_extendedprice) AS avg_price,
-    AVG(l_discount) AS avg_disc,
-    COUNT(*) AS count_order
-FROM
-    lineitem
-WHERE
-    l_shipdate <= DATE '1998-12-01' - INTERVAL '90' DAY
-GROUP BY l_returnflag , l_linestatus
-ORDER BY l_returnflag , l_linestatus;
-```
-
-- 今回の実行時間は0.05-0.2秒程度になると思います。
-
-```
-+--------------+--------------+-------------+-----------------+-------------------+---------------------+-----------+--------------+----------+-------------+
-| l_returnflag | l_linestatus | sum_qty     | sum_base_price  | sum_disc_price    | sum_charge          | avg_qty   | avg_price    | avg_disc | count_order |
-+--------------+--------------+-------------+-----------------+-------------------+---------------------+-----------+--------------+----------+-------------+
-| A            | F            | 37734107.00 |  56586554400.73 |  53758257134.8700 |  55909065222.827692 | 25.522005 | 38273.129734 | 0.049985 |     1478493 |
-| N            | F            |   991417.00 |   1487504710.38 |   1413082168.0541 |   1469649223.194375 | 25.516471 | 38284.467760 | 0.050093 |       38854 |
-| N            | O            | 74476040.00 | 111701729697.74 | 106118230307.6056 | 110367043872.497010 | 25.502226 | 38249.117988 | 0.049996 |     2920374 |
-| R            | F            | 37719753.00 |  56568041380.90 |  53741292684.6040 |  55889619119.831932 | 25.505793 | 38250.854626 | 0.050009 |     1478870 |
-+--------------+--------------+-------------+-----------------+-------------------+---------------------+-----------+--------------+----------+-------------+
-4 rows in set (0.0820 sec)
-```
-- 以下のコマンドを実行してMySQL Shellを終了します。
-  
+## 実行結果  
 ```
 +------------------------------------------+
 | INITIALIZING HEATWAVE AUTO PARALLEL LOAD |
@@ -402,6 +324,17 @@ ORDER BY l_returnflag , l_linestatus;
 
 Query OK, 0 rows affected (0.0108 sec)
 ```
+
+### **Step 7.7:エラー発生時の対応**
+
+```
+alter table part MODIFY col_2 varchar(64) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN';
+```
+```
+ALTER TABLE `autotpch100`.`part` SECONDARY_LOAD;
+```
+
+
 ### **Step 7.4:**
 
 HeatWaveがどのように機能し、パフォーマンスが向上するかを見てきました。次はバッチを利用してクエリ実行を試してみます。
