@@ -1,16 +1,13 @@
 # Lab 08: PAR URLを使用してデータをMySQL HeatWave Lakehouseに取り込む
 
-## 学べること:
-- OAC用のサンプルデータのダウンロード、MDSおよびHeatWaveへサンプルデータをロードする方法
-- Oracle Analytics Cloud(OAC)及びPrivate Access Channel(PAC)の構成方法
-- OACからPAC経由でMDSへ接続する方法
+## Manually Loadingによる取り込み
 
-## 概要
+このセクションでは、マニュアルによるテーブル情報の作成によるデータのロードについて説明します。
 
-Oracle Analytics CloudはOCI上で利用できる高機能なBIサービスです。このLabでは、まずはOAC用のサンプルデータをダウンロードしてMDS及びHeatWaveにロードします。その後、OACを構成し、次にPrivate Access Channel(PAC)を構成します。PACを使うことで、OACからプライベートIPアドレスにアクセス可能になるため、HeatWave用のMDSに接続可能になります。
 
-　※MDSはパブリックIPを持てない仕様になっているため、何らしかの手法でプライベートIPにアクセスする必要があります。
-　　セキュリティの観点等から、PACを使ったアクセスを推奨しています。
+## 参考情報
+
+TPCHに対応したサンプルテーブルはhttps://github.com/oracle/heatwave-tpch/tree/main/TPCHに公開されてます
 
 ## 前提条件
 
