@@ -10,21 +10,47 @@
 TPCHに対応したサンプルテーブルは　**[ https://github.com/oracle/heatwave-tpch ]**　に公開されています
 
 
-## 前提条件
-
-- Lab00～Lab05までを完了している必要があります。(Lab04aは除く) 
-
-## このステップの構成図
-![](./images/Lab08_1.PNG)
-![](./images/Lab08_2.PNG)
-![](./images/Lab08_3.PNG)
-
 ## 手順
 
-### **Step 8.1:**
-- Cloud ShellのSSH接続に戻ります。
+### **Step 8.1:データベースの作成**
 
-![](./images/HW35_hw.png)
+    データを展開するデータベース[tpch100]を作成します
+```
+create database tpch100;
+alter database tpch100 CHARACTER SET ascii COLLATE ascii_bin;
+use tpch100;
+```
+
+
+
+### **Step 8.2:テーブルの作成**
+CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL, 
+                        L_PARTKEY     INTEGER NOT NULL, 
+                        L_SUPPKEY     INTEGER NOT NULL,
+                        L_LINENUMBER  INTEGER NOT NULL, 
+                        L_QUANTITY    DECIMAL(15,2) NOT NULL, 
+                        L_EXTENDEDPRICE  DECIMAL(15,2) NOT NULL,
+                        L_DISCOUNT    DECIMAL(15,2) NOT NULL, 
+                        L_TAX         DECIMAL(15,2) NOT NULL,
+                        L_RETURNFLAG  CHAR(1) NOT NULL,
+                        L_LINESTATUS  CHAR(1) NOT NULL,
+                        L_SHIPDATE    DATE NOT NULL, 
+                        L_COMMITDATE  DATE NOT NULL,
+                        L_RECEIPTDATE DATE NOT NULL, 
+                        L_SHIPINSTRUCT CHAR(25) NOT NULL, 
+                        L_SHIPMODE    CHAR(10) NOT NULL,
+                        L_COMMENT     VARCHAR(44) NOT NULL, 
+                        PRIMARY KEY (L_ORDERKEY, L_LINENUMBER))
+ENGINE=lakehouse 
+secondary_engine=rapid 
+ENGINE_ATTRIBUTE='{"file": 
+    [{"region":"<region>", 
+       "namespace":"<namespace>", 
+       "bucket":"<bucket_name>", 
+       "name":"<lineitem_file_location>"}]}';
+
+
+
 
 - 以下のコマンドを実行して、演習用資材をダウンロード、解凍します。
 ```
