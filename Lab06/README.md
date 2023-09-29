@@ -1,7 +1,7 @@
-# Lab 06: MDSへデータをインポートし、クエリを実行
+# Lab 06: オブジェクトストレージのファイルをMySQL HeatWave Lakehouseに取り込む
 
 ## 学べること
-- MDSに接続し、データを格納する方法
+- HeatWaveに接続し、Bulket上のデータを取り込む
 
 ## このステップの構成図
 ![](./images/Lab06.PNG)
