@@ -11,6 +11,7 @@
 
 ### **Step 7.1:アクセスするPAR URL:**
 - 2023/10/30 limit
+- 
   https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/
   
 
