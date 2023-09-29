@@ -10,10 +10,9 @@
 ## 手順
 
 ### **Step 7.1:アクセスするPAR URL:**
-- OCIコンソールでHeatWaveノードが _**アクティブ**_ の状態になっていることを確認します。
+- 2023/10/30 limit
+  https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/
   
-
-![](./images/HW34_hw.png)
 
 
 ### **Step 7.2:データベースの作成**
