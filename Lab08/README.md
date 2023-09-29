@@ -25,7 +25,7 @@ use tpch100;
 
 ### **Step 8.2:テーブルの作成**
 ```
-CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL, 
+CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL COMMENT 'RAPID_COLUMN=DATA_PLACEMENT_KEY=1', 
                         L_PARTKEY     INTEGER NOT NULL, 
                         L_SUPPKEY     INTEGER NOT NULL,
                         L_LINENUMBER  INTEGER NOT NULL, 
@@ -61,7 +61,7 @@ ENGINE_ATTRIBUTE='{"file":
 
 - 以下のコマンドを実行して、演習用資材をダウンロード、解凍します。
 ```
-CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL, 
+CREATE TABLE LINEITEM ( L_ORDERKEY    BIGINT NOT NULL COMMENT 'RAPID_COLUMN=DATA_PLACEMENT_KEY=1', 
                         L_PARTKEY     INTEGER NOT NULL, 
                         L_SUPPKEY     INTEGER NOT NULL,
                         L_LINENUMBER  INTEGER NOT NULL, 
@@ -84,7 +84,7 @@ ENGINE_ATTRIBUTE='{"file":
     [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/lineitem.tbl"}]
      }';
 ```
-
+```
 CREATE TABLE ORDERS  ( O_ORDERKEY       BIGINT NOT NULL, 
                        O_CUSTKEY        INTEGER NOT NULL, 
                        O_ORDERSTATUS    CHAR(1) NOT NULL,
@@ -98,12 +98,11 @@ CREATE TABLE ORDERS  ( O_ORDERKEY       BIGINT NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<orders_file_location>"}]}';
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/orders.tbl"}]
+     }';
+```
 
-
+```
 create table CUSTOMER ( C_CUSTKEY     INTEGER NOT NULL, 
                         C_NAME        VARCHAR(25) NOT NULL, 
                         C_ADDRESS     VARCHAR(40) NOT NULL, 
@@ -116,12 +115,11 @@ create table CUSTOMER ( C_CUSTKEY     INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<customer_file_location>"}]}';
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/customer.tbl"}]
+     }';
+```
 
-
+```
 CREATE TABLE SUPPLIER ( S_SUPPKEY     INTEGER NOT NULL, 
                         S_NAME        CHAR(25) NOT NULL, 
                         S_ADDRESS     VARCHAR(40) NOT NULL,
@@ -133,12 +131,11 @@ CREATE TABLE SUPPLIER ( S_SUPPKEY     INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<supplier_file_location>"}]}';
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/supplier.tbl"}]
+     }';
+```
 
-
+```
 CREATE TABLE NATION ( N_NATIONKEY      INTEGER NOT NULL, 
                       N_NAME           CHAR(25) NOT NULL, 
                       N_REGIONKEY      INTEGER NOT NULL, 
@@ -147,11 +144,10 @@ CREATE TABLE NATION ( N_NATIONKEY      INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<nation_file_location>"}]}';
-
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/nation.tbl"}]
+     }';
+```
+```
 CREATE TABLE REGION ( R_REGIONKEY       INTEGER NOT NULL, 
                       R_NAME            CHAR(25) NOT NULL, 
                       R_COMMENT         VARCHAR(152) NOT NULL, 
@@ -159,12 +155,10 @@ CREATE TABLE REGION ( R_REGIONKEY       INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-       "bucket":"<bucket_name>", 
-       "name":"<region_file_location>"}]}';
-
-
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/region.tbl"}]
+     }';
+```
+```
 CREATE TABLE PART  ( P_PARTKEY          INTEGER NOT NULL, 
                      P_NAME             VARCHAR(55) NOT NULL, 
                      P_MFGR             CHAR(25) NOT NULL,
@@ -178,12 +172,10 @@ CREATE TABLE PART  ( P_PARTKEY          INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>", 
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<part_file_location>"}]}';
-
-
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/part.tbl"}]
+     }';
+```
+```
 CREATE TABLE PARTSUPP ( PS_PARTKEY      INTEGER NOT NULL, 
                         PS_SUPPKEY      INTEGER NOT NULL, 
                         PS_AVAILQTY     INTEGER NOT NULL,
@@ -193,10 +185,8 @@ CREATE TABLE PARTSUPP ( PS_PARTKEY      INTEGER NOT NULL,
 ENGINE=lakehouse 
 secondary_engine=rapid 
 ENGINE_ATTRIBUTE='{"file": 
-    [{"region":"<region>",
-      "namespace":"<namespace>", 
-      "bucket":"<bucket_name>", 
-      "name":"<partsupp_file_location>"}]}';
+    [{ "par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/partsupp.tbl"}]
+     }';
 ```
 
 ```
