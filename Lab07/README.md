@@ -40,65 +40,22 @@ SET @db_list = '["autotpch100"]';
 SET @ext_tables = '[{
           "db_name": "autotpch100",
           "tables": [
-            {
+            { 
               "table_name": "customer",
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
+              "file": [ 
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/customer.tbl"}
               ]
             },
-            {
+            { 
               "table_name": "lineitem",
               "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
+              "file": [ 
                 {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/lineitem.tbl"}
-              ]
-            },
-            {
-              "table_name": "orders",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/orders.tbl"}
-              ]
-            },
-            {
-              "table_name": "part",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/part.tbl"}
-              ]
-            },
-            {
-              "table_name": "partsupp",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/partsupp.tbl"}
-              ]
-            },
-            {
-              "table_name": "region",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/region.tbl"}
-              ]
-            },
-            {
-              "table_name": "supplier",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/supplier.tbl"}
-              ]
-            },
-            {
-              "table_name": "nation",
-              "dialect": { "format": "csv", "field_delimiter": "|", "record_delimiter": "|\\n" },
-              "file": [
-                {"par": "https://objectstorage.ap-tokyo-1.oraclecloud.com/p/hu8s-4CnB04hFZiU2-qB2OYLrsoyL1vF_8AVs82oeHAVjyM1E2DDWASTT_fQumCj/n/idazzjlcjqzj/b/tpch-100/o/nation.tbl"}
-              ]
+              ] 
             }
           ]
         }]';
-
 ```
 
 ```
