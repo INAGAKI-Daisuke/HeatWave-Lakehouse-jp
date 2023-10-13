@@ -1,7 +1,7 @@
 # Lab 06: オブジェクトストレージのファイルをMySQL HeatWave Lakehouseに取り込む
 
 ## 学べること
-- HeatWaveに接続し、Bulket上のデータを取り込む
+- HeatWaveに接続し、Bucket上のデータを取り込む
 
 - リソースプリンシパルを使用する
 - 事前認証リクエストURLの使用する
